@@ -1,6 +1,9 @@
 FROM registry.access.redhat.com/ubi8/go-toolset
 ENV GOPATH=$APP_ROOT
 ENV GOBIN=$APP_ROOT/bin
+ENV CGO_ENABLED=1
+ENV GO111MODULE=off
+
 ADD . $GOPATH/src/hello/
 RUN go install hello
 
